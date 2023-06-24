@@ -27,9 +27,11 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li>
-            <a class="nav-link active" aria-current="page" href="<?= BASEURL ?>/managekelas">Kelas</a>
+            <a class="nav-link active" aria-current="page" href="<?= BASEURL ?>/home">Kelas</a>
           </li>
-
+          <li>
+            <a class="nav-link active" aria-current="page" href="<?= BASEURL ?>/login/logout">LogOut </a>
+          </li>
         </ul>
       </div>
       <a class="login-button" href="<?= BASEURL; ?>/login/logout">

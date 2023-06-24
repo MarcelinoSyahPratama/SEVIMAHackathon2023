@@ -18,7 +18,7 @@
             <td><?= $tugas["deadline"] ?></td>
             <td><?= $tugas["DateTime"] ?></td>
             <td class="text-center">
-              <a href="<?= BASEURL; ?>/halamanujian/index/<?= $tugas['id_tugas']; ?>" class="btn shadow-none btn-success"></a>
+              <a href="<?= BASEURL; ?>/halamanujian/index/<?= $tugas['id_tugas']; ?>"><span class="badge bg-success">Kerjakan</span></a>
             </td>
           </tr>
         <?php endforeach ?>

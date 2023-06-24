@@ -29,9 +29,9 @@ class Login extends Controller
 
                       $_SESSION['user'] = $user;
             
-                      if ($user['Role'] === 'guru') {
+                      if ($user['Role'] == 'guru') {
                         header('Location:'. BASEURL . '/managekelas');
-                      } else  if ($user['Role'] === 'murid'){
+                      } else  if ($user['Role'] == 'murid'){
                         header('Location:'. BASEURL . '/home');
                       }
                       exit;
@@ -41,5 +41,11 @@ class Login extends Controller
             } else {
                 header('Location:'. BASEURL . '/login');
             }
+    }
+    public function logout(){
+        session_start();
+        session_unset();
+        session_destroy();
+        header('Location:'. BASEURL . '/login');
     }
 }

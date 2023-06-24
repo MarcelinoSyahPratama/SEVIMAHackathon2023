@@ -35,6 +35,9 @@
           <li>
             <a class="nav-link active" aria-current="page" href="<?= BASEURL ?>/managekelas">Manage Kelas</a>
           </li>
+          <li>
+            <a class="nav-link active" aria-current="page" href="<?= BASEURL ?>/login/logout">LogOut </a>
+          </li>
 
         </ul>
       </div>

@@ -9,7 +9,7 @@ class Tugas_Model
   }
   public function getAllTugas()
   {
-    $this->db->query('SELECT * FROM ' . $this->table . ' INNER JOIN kelas ON kelas.id_kelas = tugas.id_kelas');
+    $this->db->query('SELECT * FROM ' . $this->table . ' INNER JOIN kelas ON kelas.id_kelas = tugas.id_kelas ');
     return $this->db->resultSet();
   }
   public function addDataTugas($data)
@@ -88,7 +88,14 @@ class Tugas_Model
 
   public function getTugasUser($id_kelas)
   {
-    $this->db->query("SELECT * FROM tugas WHERE id_kelas = $id_kelas");
+    $this->db->query("SELECT * FROM tugas INNER JOIN nilai ON nilai.id_tugas != tugas.id_tugas WHERE id_kelas = $id_kelas");
+    return $this->db->resultSet();
+  }
+  public function getNilaiUser($id_tugas)
+  {
+    session_start();
+    $id_user = $_SESSION["user"]["id_user"];
+    $this->db->query("SELECT * FROM nilai INNER JOIN tugas ON nilai.id_tugas = tugas.id_tugas WHERE id_user = $id_user");
     return $this->db->resultSet();
   }
 }

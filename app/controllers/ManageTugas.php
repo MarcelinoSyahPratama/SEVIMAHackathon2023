@@ -3,11 +3,16 @@ class ManageTugas extends Controller
 {
     public function index()
     {
-        $data['kelas'] = $this->model('Kelas_Model')->getAllKelas();
-        $data['tugas'] = $this->model('Tugas_Model')->getAllTugas();
-        $this->view('tamplates/header_admin');
-        $this->view('admin/managetugas',$data);
-        $this->view('tamplates/footer');
+        session_start();
+        if (!isset($_SESSION['user'])) {
+            header('Location: ' . BASEURL . '/login');
+        }else{
+            $data['kelas'] = $this->model('Kelas_Model')->getAllKelas();
+            $data['tugas'] = $this->model('Tugas_Model')->getAllTugas();
+            $this->view('tamplates/header_admin');
+            $this->view('admin/managetugas',$data);
+            $this->view('tamplates/footer');
+        }
     }
     public function addTugas()
     {
@@ -22,7 +27,7 @@ class ManageTugas extends Controller
                 'judul' => $judul,
                 'desc' => $desc,
                 'deadline' => $deadline,
-                'Status' => "Aktiv",
+                'Status' => "",
                 'DateTime' => date("Y-m-d H:s:i")
             ];
             $this->model('Tugas_Model')->addDataTugas($data);

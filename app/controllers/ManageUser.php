@@ -3,10 +3,15 @@ class ManageUser extends Controller
 {
     public function index()
     {
-        $data['user'] = $this->model('User_Model')->getAllUser();
-        $this->view('tamplates/header_admin');
-        $this->view('admin/manageuser',$data);
-        $this->view('tamplates/footer');
+        session_start();
+        if (!isset($_SESSION['user'])) {
+            header('Location: ' . BASEURL . '/login');
+        }else{
+            $data['user'] = $this->model('User_Model')->getAllUser();
+            $this->view('tamplates/header_admin');
+            $this->view('admin/manageuser',$data);
+            $this->view('tamplates/footer');
+        }
     }
     public function addUser()
     {

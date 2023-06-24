@@ -9,7 +9,6 @@ class Kelas_Model
   }
   public function getAllKelas()
   {
-    session_start();
     $id_guru = $_SESSION["user"]["id_user"];
     $this->db->query('SELECT * FROM ' . $this->table . " WHERE id_guru = $id_guru");
     return $this->db->resultSet();
@@ -71,7 +70,6 @@ class Kelas_Model
   
   public function getKelasUser()
   {
-    session_start();
     $id_user = $_SESSION["user"]["id_user"];
     $this->db->query("SELECT * FROM kelasuser INNER JOIN kelas ON kelasuser.kodekelas = kelas.kode INNER JOIN user ON kelas.id_guru = user.id_user WHERE kelasuser.id_user = $id_user");
     return $this->db->resultSet();

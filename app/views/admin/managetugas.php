@@ -1,6 +1,7 @@
 <div class="content" style="margin-top: 5%">
   <div class="d-flex justify-content-end">
-    <button type="button" class=" button-data add" data-bs-toggle="modal" data-bs-target="#ModalAdd" data-bs-whatever="@mdo"> Create User</button>
+    <button type="button" class=" button-data add btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalAdd" data-bs-whatever="@mdo"> Create Tugas</button>
+    <button class=" button-data add btn btn-primary" href="https://drive.google.com/u/0/uc?id=1K4v9UwV2XECwx4JNnxZ7p8sbdgwZWAM_&export=download"> Download PDF</button><br />
   </div>
   <div class="table-customer">
     <table class="table1" id="table1">
@@ -25,12 +26,13 @@
             <td><?= $tugas["status"] ?></td>
             <td><?= $tugas["DateTime"] ?></td>
             <td class="text-center">
-              <a href="<?= BASEURL; ?>/halamanujian/index/<?= $tugas['id_tugas']; ?>" class="btn shadow-none btn-success" data-bs-target="#exampleModalDelete"></a>
-              <button class="btn shadow-none btn-info showModalUpdate enableButton" data-bs-toggle="modal" data-bs-target="#ModalUpload" onclick="upload('<?= $tugas['id_tugas']; ?>')">
-              </button>
-              <button class="btn shadow-none btn-warning showModalUpdate enableButton" data-bs-toggle="modal" data-bs-target="#ModalUpdate" onclick="detail('<?= $tugas['id_tugas']; ?>','<?= $tugas['judul']; ?>','<?= $tugas['deskripsi']; ?>','<?= $tugas['deadline']; ?>')">
-              </button>
-              <a href="<?= BASEURL; ?>/managetugas/deleteTugas/<?= $tugas['id_tugas']; ?>" class="btn shadow-none btn-danger" data-bs-target="#exampleModalDelete"></a>
+              <a href="<?= BASEURL; ?>/halamanujian/index/<?= $tugas['id_tugas']; ?>"><span class="badge bg-success">Halaman Ujian</span></a>
+              <a href="<?= BASEURL; ?>/halamanujian/index/<?= $tugas['id_tugas']; ?>"><span class="badge bg-success">Halaman Ujian</span></a>
+              <a class="showModalUpdate enableButton" data-bs-toggle="modal" data-bs-target="#ModalUpload" onclick="upload('<?= $tugas['id_tugas']; ?>')">
+              <span class="badge bg-primary">Upload File</span></a>
+              <a class="showModalUpdate enableButton" data-bs-toggle="modal" data-bs-target="#ModalUpdate" onclick="detail('<?= $tugas['id_tugas']; ?>','<?= $tugas['judul']; ?>','<?= $tugas['deskripsi']; ?>','<?= $tugas['deadline']; ?>')">
+              <span class="badge bg-warning">Edit</span></a>
+              <a href="<?= BASEURL; ?>/managetugas/deleteTugas/<?= $tugas['id_tugas']; ?>"data-bs-target="#exampleModalDelete"><span class="badge bg-danger">Hapus</span></a>
             </td>
           </tr>
         <?php endforeach ?>

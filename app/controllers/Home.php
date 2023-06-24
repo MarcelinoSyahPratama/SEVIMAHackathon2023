@@ -3,10 +3,15 @@ class Home extends Controller
 {
     public function index()
     {
-        $data['kelas'] = $this->model('Kelas_Model')->getKelasUser();
-        $this->view('tamplates/header_user');
-        $this->view('user/home',$data);
-        $this->view('tamplates/footer');
+        session_start();
+        if (!isset($_SESSION['user'])) {
+            header('Location: ' . BASEURL . '/login');
+        }else{
+            $data['kelas'] = $this->model('Kelas_Model')->getKelasUser();
+            $this->view('tamplates/header_user');
+            $this->view('user/home',$data);
+            $this->view('tamplates/footer');
+        }
     }
 
     public function joinkelas()

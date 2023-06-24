@@ -3,9 +3,14 @@ class HalamanUjian extends Controller
 {
     public function index($idtugas)
     {
+        session_start();
+        if (!isset($_SESSION['user'])) {
+            header('Location: ' . BASEURL . '/login');
+        }else{
             $data['soal'] = $this->model('Halamanujian_Model')->getAllSoal($idtugas);
             $data['jumlahUser'] = $this->model('Halamanujian_Model')->jumlahSoal($idtugas);
             $this->view('user/halamanujian',$data);
+        }
     }
     public function Nilai()
     {

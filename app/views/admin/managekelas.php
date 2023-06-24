@@ -1,6 +1,6 @@
 <div class="content" style="margin-top: 5%">
   <div class="d-flex justify-content-end">
-    <button type="button" class=" button-data add" data-bs-toggle="modal" data-bs-target="#ModalAdd" data-bs-whatever="@mdo"> Create User</button>
+    <button type="button" class=" button-data add btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalAdd" data-bs-whatever="@mdo"> Create Kelas</button>
   </div>
   <div class="table-customer">
     <table class="table" id="table">
@@ -17,9 +17,9 @@
             <td><?= $kelas["nama"] ?></td>
             <td><?= $kelas["kode"] ?></td>
             <td class="text-center">
-              <button class="btn shadow-none btn-warning showModalUpdate enableButton" data-bs-toggle="modal" data-bs-target="#ModalUpdate" data-id="<?= $kelas['id_kelas']; ?>" onclick="detail(<?= $kelas['id_kelas']; ?>,'<?= $kelas['nama']; ?>')">
-              </button>
-              <a href="<?= BASEURL; ?>/managekelas/deleteKelas/<?= $kelas['id_kelas']; ?>" class="btn shadow-none btn-danger" data-bs-target="#exampleModalDelete"></a>
+              <a class="showModalUpdate enableButton" data-bs-toggle="modal" data-bs-target="#ModalUpdate" data-id="<?= $kelas['id_kelas']; ?>" onclick="detail(<?= $kelas['id_kelas']; ?>,'<?= $kelas['nama']; ?>')">
+              <span class="badge bg-warning">Edit</span></a>
+              <a href="<?= BASEURL; ?>/managekelas/deleteKelas/<?= $kelas['id_kelas']; ?>"><span class="badge bg-danger">Hapus</span></a>
             </td>
           </tr>
         <?php endforeach ?>

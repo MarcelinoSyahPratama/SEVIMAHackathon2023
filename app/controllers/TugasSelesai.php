@@ -1,15 +1,15 @@
 <?php
-class ListTugas extends Controller
+class TugasSelesai extends Controller
 {
-    public function index($id_kelas)
+    public function index($idtugas)
     {
         session_start();
         if (!isset($_SESSION['user'])) {
             header('Location: ' . BASEURL . '/login');
         }else{
-            $data['tugas'] = $this->model('Tugas_Model')->getTugasUser($id_kelas);
+            $data['nilai'] = $this->model('Tugas_Model')->getNilaiUser($idtugas);
             $this->view('tamplates/header_user');
-            $this->view('user/listtugas',$data);
+            $this->view('user/tugasselesai',$data);
             $this->view('tamplates/footer');
         }
     }
