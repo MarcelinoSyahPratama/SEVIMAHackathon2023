@@ -1,10 +1,10 @@
 <?php
 class HalamanUjian extends Controller
 {
-    public function index()
+    public function index($idtugas)
     {
-            $data['soal'] = $this->model('Halamanujian_Model')->getAllSoal();
-            $data['jumlahUser'] = $this->model('Halamanujian_Model')->jumlahUser();
+            $data['soal'] = $this->model('Halamanujian_Model')->getAllSoal($idtugas);
+            $data['jumlahUser'] = $this->model('Halamanujian_Model')->jumlahSoal($idtugas);
             $this->view('user/halamanujian',$data);
     }
     public function Nilai()

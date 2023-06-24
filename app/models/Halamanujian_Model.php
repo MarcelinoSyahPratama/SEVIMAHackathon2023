@@ -7,16 +7,16 @@ class Halamanujian_Model
   {
     $this->db = new Database;
   }
-  public function getAllSoal()
+  public function getAllSoal($idtugas)
   {
-    $this->db->query('SELECT * FROM ' . $this->table.' WHERE id_tugas = 1');
+    $this->db->query('SELECT * FROM ' . $this->table.' WHERE id_tugas = '.$idtugas);
     return $this->db->resultSet();
   }
-  public function jumlahUser()
+  public function jumlahSoal($idtugas)
   {
     $query = "SELECT COUNT(*) AS total_count
         FROM " . $this->table . "
-        WHERE id_tugas = 1";
+        WHERE id_tugas = $idtugas";
     $this->db->query($query);
 
     $this->db->execute();

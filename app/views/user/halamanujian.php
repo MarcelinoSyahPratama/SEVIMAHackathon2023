@@ -18,16 +18,18 @@
   <body>
     <div class="line mt-3 mb-1"></div>
     <form name="ujian" method="post" action="<?= BASEURL ?>/halamanujian/Nilai">
+        <?php $n=0; ?>
         <p><input type="text" name="jmlsoal" value="<?= $data['jumlahUser']["total_count"] ?>" hidden></p>
         <?php foreach($data["soal"] as $key => $value) : ?>
         <div class="soal">
             <div class="jwb">
+                <?php $n++; ?>
                 <p><?= $value["soal"] ?></p>
-                <p><input type="text" name="soal<?= $value['id_soal'] ?>" value="<?= $value['id_soal'] ?>" hidden></p>
-                <p><input type="radio" id="A" name="jawab<?= $value['id_soal'] ?>" value="a"> A.<?= $value["a"] ?></p>
-                <p><input type="radio" id="B" name="jawab<?= $value['id_soal'] ?>" value="b"> B.<?= $value["b"] ?></p>
-                <p><input type="radio" id="C" name="jawab<?= $value['id_soal'] ?>" value="c"> C.<?= $value["c"] ?></p>
-                <p><input type="radio" id="D" name="jawab<?= $value['id_soal'] ?>" value="d"> D.<?= $value["d"] ?></p>
+                <p><input type="text" name="soal<?= $n ?>" value="<?= $value['id_soal'] ?>" hidden></p>
+                <p><input type="radio" id="A" name="jawab<?= $n ?>" value="a"> A.<?= $value["a"] ?></p>
+                <p><input type="radio" id="B" name="jawab<?= $n ?>" value="b"> B.<?= $value["b"] ?></p>
+                <p><input type="radio" id="C" name="jawab<?= $n ?>" value="c"> C.<?= $value["c"] ?></p>
+                <p><input type="radio" id="D" name="jawab<?= $n ?>" value="d"> D.<?= $value["d"] ?></p>
             </div>
         </div>
         <?php endforeach; ?>

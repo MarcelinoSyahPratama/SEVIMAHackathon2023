@@ -8,7 +8,7 @@ class ManageTugas extends Controller
         $this->view('admin/managetugas',$data);
         $this->view('tamplates/footer');
     }
-    public function addUser()
+    public function addTugas()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $judul = $_POST['judul'];
@@ -33,38 +33,68 @@ class ManageTugas extends Controller
            
     }
 
-    public function updateUser()
+    public function updateTugas()
     {
-        $id_user = $_POST['id_user'];
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $role = $_POST['role'];
+        //print_r($_POST);die;
+        $idTugas = $_POST['id_tugas'];
+        $judul = $_POST['judul'];
+        $desc = $_POST['desc'];
+        $deadline = $_POST['deadline'];
 
         $data = [
-            'id_user' => $id_user,
-            'username' => $username,
-            'password' => $password,
-            'role' => $role
+            'idTugas' => $idTugas,
+            'judul' => $judul,
+            'desc' => $desc,
+            'deadline' => $deadline
         ];
 
-        $this->model('User_Model')->updateDataUser($data);
+        $this->model('Tugas_Model')->updateDataTugas($data);
             //print_r($data);die;
             
-        header('Location:'. BASEURL .'/manageuser');
+        header('Location:'. BASEURL .'/managetugas');
 
             // }
         
     }
 
-    public function deleteUser($id_user)
+    public function deleteTugas($id_tugas)
     {
-        if ($this->model('User_Model')->hapusDataUser($id_user) > 0) {
+        if ($this->model('Tugas_Model')->hapusDataTugas($id_tugas) > 0) {
             
-            header('Location:'. BASEURL .'/manageuser');
+            header('Location:'. BASEURL .'/managetugas');
             exit;   
         } else {
-            header('Location:'. BASEURL .'/manageuser');
+            header('Location:'. BASEURL .'/managetugas');
             exit;
         }
+    }
+
+    public function uploadfile()
+    {
+        //require 'vendor/autoload.php';
+        $idTugas = $_POST['id_tugas'];
+        $path = $_FILES['filesoal']['tmp_name'];
+        $file = fopen($path, 'r');
+        while (($line = fgetcsv($file)) !== FALSE) {
+        //$line is an array of the csv elements
+        $excel[] = $line;
+        }
+        fclose($file);
+        unset($excel[0]);
+        //echo "<pre>";print_r($excel);die;
+        foreach($excel as $key=>$value){
+            $data = [
+                'idTugas' => $idTugas,
+                'soal' => $value[0],
+                'a' => $value[1],
+                'b' => $value[2],
+                'c' => $value[3],
+                'd' => $value[4],
+                'jwb' => $value[5],
+            ];
+        $this->model('Tugas_Model')->addDataSoal($data);
+    }
+    $this->model('Tugas_Model')->UpdStsTgs($idTugas);
+        header('Location:'. BASEURL .'/managetugas');
     }
 }
