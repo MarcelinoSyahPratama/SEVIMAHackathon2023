@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400;1,500;1,600&display=swap');
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+    scroll-behavior: smooth;
+    overflow: hidden;
+}
+
+.register {
+    height: auto;
+}
+
+.register .row .col-sm-6 .content-image img {
+    width: 640px;
+    height: 650px;
+}
+
+.register .row .col-sm-6 .content-image .content-image-content {
+    width: 620px;
+    position: absolute;
+    top: 0;
+    text-align: center;
+    padding: 3% 3% 5% 3%;
+}
+
+.register .row .col-sm-6 .content-image .content-image-content .logo img {
+    width: 68px;
+    height: 68px;
+}
+
+.register .row .col-sm-6 .content-image .content-image-content .welcome {
+    font-weight: 600;
+    color: #fff;
+    font-size: 23px;
+    margin-top: 3%;
+}
+
+.register .row .col-sm-6 .content-image .content-image-content .register-text {
+    font-weight: 500;
+    color: #fff;
+    font-size: 13px;
+    margin-top: 68%;
+}
+
+.register .row .col-sm-6 .register-out-side {
+    width: 100%;
+    padding: 15% 10%;
+    /* untuk mengatur x dan y pada layar */
+    margin: 0 auto;
+}
+
+.register .row .col-sm-6 .register-out-side .register-in-side {
+    width: 100%;
+}
+
+.register .row .col-sm-6 .register-out-side .register-in-side .title-register {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 5%;
+    font-size: 30px;
+}
+
+.register .row .col-sm-6 .register-out-side .register-in-side form label {
+    /* untuk mengatur ketebalan font */
+    font-weight: 600;
+    font-size: 15px;
+    padding-left: 2%;
+}
+
+.register .row .col-sm-6 .register-out-side .register-in-side form input[ type=text],
+.register .row .col-sm-6 .register-out-side .register-in-side form input[type=password] {
+    /* untuk mengatur radius x/y pada component */
+    border-radius: 2%/20%;
+    height: 45px;
+    /* untuk memberikan garis luar pada component, "ketebalan garis, style, warna" */
+    border: 1.5px solid #959595;
+    padding: 0% 3% 0.5% 3%;
+}
+
+.register .row .col-sm-6 .register-out-side .register-in-side form .butt {
+    width: 100%;
+    padding: 2.4% 0%;
+    text-align: center;
+    background-color: #191919;
+    border-radius: 20px;
+    color: white;
+    font-weight: 700;
+    font-size: 19px;
+    margin-top: 10%;
+}

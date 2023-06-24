@@ -23,8 +23,6 @@
                     <img src="./images/Pendidikan.png" alt="" srcset="">
                     <div class="content-image-content">
                         <div class="logo"><img src="./images/logo.png" alt="" srcset=""></div>
-                        <div class="login-text">We're glad you have chosen to stay at our hotel. Please enter your login
-                            information to proceed</div>
                     </div>
                 </div>
 
