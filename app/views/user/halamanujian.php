@@ -17,16 +17,17 @@
   </style>
   <body>
     <div class="line mt-3 mb-1"></div>
-    <form name="ujian" method="post" action="<?= BASEURL ?>/HalamanUjian/Nilai">
+    <form name="ujian" method="post" action="<?= BASEURL ?>/halamanujian/Nilai">
+        <p><input type="text" name="jmlsoal" value="<?= $data['jumlahUser']["total_count"] ?>" hidden></p>
         <?php foreach($data["soal"] as $key => $value) : ?>
         <div class="soal">
             <div class="jwb">
                 <p><?= $value["soal"] ?></p>
                 <p><input type="text" name="soal<?= $value['id_soal'] ?>" value="<?= $value['id_soal'] ?>" hidden></p>
-                <p><input type="radio" id="A" name="jawab<?= $value['id_soal'] ?>" value="<?= $value["a"] ?>"> A.<?= $value["a"] ?></p>
-                <p><input type="radio" id="B" name="jawab<?= $value['id_soal'] ?>" value="<?= $value["b"] ?>"> B.<?= $value["b"] ?></p>
-                <p><input type="radio" id="C" name="jawab<?= $value['id_soal'] ?>" value="<?= $value["c"] ?>"> C.<?= $value["c"] ?></p>
-                <p><input type="radio" id="D" name="jawab<?= $value['id_soal'] ?>" value="<?= $value["d"] ?>"> D.<?= $value["d"] ?></p>
+                <p><input type="radio" id="A" name="jawab<?= $value['id_soal'] ?>" value="a"> A.<?= $value["a"] ?></p>
+                <p><input type="radio" id="B" name="jawab<?= $value['id_soal'] ?>" value="b"> B.<?= $value["b"] ?></p>
+                <p><input type="radio" id="C" name="jawab<?= $value['id_soal'] ?>" value="c"> C.<?= $value["c"] ?></p>
+                <p><input type="radio" id="D" name="jawab<?= $value['id_soal'] ?>" value="d"> D.<?= $value["d"] ?></p>
             </div>
         </div>
         <?php endforeach; ?>
