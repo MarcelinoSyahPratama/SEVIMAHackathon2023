@@ -54,4 +54,27 @@ class Kelas_Model
 
     return $this->db->rowCount();
   }
+
+  public function joinkelas($data)
+  {
+    session_start();
+    $id_user = $_SESSION["user"]["id_user"];
+    $query = "INSERT INTO kelasuser VALUES ('', :id_user, :kodekelas)";
+    $this->db->query($query);
+    $this->db->bind(':kodekelas', $data["kodekelas"]);
+    $this->db->bind(':id_user', $id_user);
+
+    $this->db->execute();
+
+    return $this->db->rowCount();
+  }
+  
+  public function getKelasUser()
+  {
+    session_start();
+    $id_user = $_SESSION["user"]["id_user"];
+    $this->db->query("SELECT * FROM kelasuser INNER JOIN kelas ON kelasuser.kodekelas = kelas.kode INNER JOIN user ON kelas.id_guru = user.id_user WHERE kelasuser.id_user = $id_user");
+    return $this->db->resultSet();
+  }
+  
 }

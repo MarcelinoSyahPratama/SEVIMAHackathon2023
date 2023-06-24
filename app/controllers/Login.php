@@ -31,8 +31,8 @@ class Login extends Controller
             
                       if ($user['Role'] === 'guru') {
                         header('Location:'. BASEURL . '/managekelas');
-                      } else {
-                        //header('Location:'. BASEURL . '/manageroom');
+                      } else  if ($user['Role'] === 'murid'){
+                        header('Location:'. BASEURL . '/home');
                       }
                       exit;
                     } else {
