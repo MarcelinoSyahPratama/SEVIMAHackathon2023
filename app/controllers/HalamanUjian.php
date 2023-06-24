@@ -29,7 +29,8 @@ class HalamanUjian extends Controller
             $jumlah_soal=$_POST["jmlsoal"];
             $score = 100/$jumlah_soal*$benar;
             $hasil = number_format($score,1);
-            echo $hasil;die;
+            $this->model('Halamanujian_Model')->catatnilai($idtugas,$hasil);
+            header('Location:'. BASEURL .'/home');
         }
     }
 }

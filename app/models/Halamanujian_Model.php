@@ -34,4 +34,18 @@ class Halamanujian_Model
 
     return $this->db->single();
   }
+  public function catatnilai($id_tugas,$nilai)
+  {
+    session_start();
+    $id_user = $_SESSION["user"]["id_user"];
+    $query = "INSERT INTO nilai VALUES ('', :id_tugas, :id_user, :nilai)";
+    $this->db->query($query);
+    $this->db->bind(':id_tugas', $id_tugas);
+    $this->db->bind(':id_user', $id_user);
+    $this->db->bind(':nilai', $nilai);
+
+    $this->db->execute();
+
+    return $this->db->rowCount();
+  }
 }

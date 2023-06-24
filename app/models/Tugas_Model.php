@@ -85,4 +85,10 @@ class Tugas_Model
 
     return $this->db->rowCount();
   }
+
+  public function getTugasUser($id_kelas)
+  {
+    $this->db->query("SELECT * FROM tugas WHERE id_kelas = $id_kelas");
+    return $this->db->resultSet();
+  }
 }

@@ -1,23 +1,24 @@
 <div class="content" style="margin-top: 5%">
-  <div class="d-flex justify-content-end">
-    <button type="button" class=" button-data add" data-bs-toggle="modal" data-bs-target="#ModalAdd" data-bs-whatever="@mdo"> Gabung Kelas</button>
-  </div>
   <div class="table-customer">
     <table class="table" id="table">
       <thead>
         <tr>
-          <th>nama Kelas</th>
-          <th>Nama Guru</th>
+          <th>Judul</th>
+          <th>deskripsi</th>
+          <th>deadline</th>
+          <th>Tanggal Upload</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <?php foreach($data["kelas"] as $key => $kelas) : ?>
+        <?php foreach($data["tugas"] as $key => $tugas) : ?>
           <tr>
-            <td><?= $kelas["nama"] ?></td>
-            <td><?= $kelas["Username"] ?></td>
+            <td><?= $tugas["judul"] ?></td>
+            <td><?= $tugas["deskripsi"] ?></td>
+            <td><?= $tugas["deadline"] ?></td>
+            <td><?= $tugas["DateTime"] ?></td>
             <td class="text-center">
-              <a href="<?= BASEURL; ?>/listtugas/index/<?= $kelas['id_kelas']; ?>" class="btn shadow-none btn-success"></a>
+              <a href="<?= BASEURL; ?>/halamanujian/index/<?= $tugas['id_tugas']; ?>" class="btn shadow-none btn-success"></a>
             </td>
           </tr>
         <?php endforeach ?>
