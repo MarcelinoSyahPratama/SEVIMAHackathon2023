@@ -17,8 +17,9 @@ class HalamanUjian extends Controller
             for($i=1;$i<=$_POST["jmlsoal"];$i++){
                 $nomor=$_POST["soal".$i];
                 $jawaban=$_POST["jawab".$i];
+                $idtugas=$_POST["idtugas"];
                 
-                $cek=$this->model('Halamanujian_Model')->cekjawaban($nomor,$jawaban);
+                $cek=$this->model('Halamanujian_Model')->cekjawaban($nomor,$jawaban,$idtugas);
                 if($cek["total_count"]){
                     $benar++;
                 }else{

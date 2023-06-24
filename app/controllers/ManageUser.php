@@ -24,8 +24,6 @@ class ManageUser extends Controller
             
             header('Location:'. BASEURL .'/manageuser');
 
-            // }
-
         }
            
     }

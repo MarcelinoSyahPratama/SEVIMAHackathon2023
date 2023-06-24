@@ -32,6 +32,9 @@
           <li>
             <a class="nav-link active" aria-current="page" href="<?= BASEURL ?>/managetugas">Manage Tugas</a>
           </li>
+          <li>
+            <a class="nav-link active" aria-current="page" href="<?= BASEURL ?>/managekelas">Manage Kelas</a>
+          </li>
 
         </ul>
       </div>

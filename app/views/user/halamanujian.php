@@ -26,6 +26,7 @@
                 <?php $n++; ?>
                 <p><?= $value["soal"] ?></p>
                 <p><input type="text" name="soal<?= $n ?>" value="<?= $value['id_soal'] ?>" hidden></p>
+                <p><input type="text" name="idtugas" value="<?= $value['id_tugas'] ?>" hidden></p>
                 <p><input type="radio" id="A" name="jawab<?= $n ?>" value="a"> A.<?= $value["a"] ?></p>
                 <p><input type="radio" id="B" name="jawab<?= $n ?>" value="b"> B.<?= $value["b"] ?></p>
                 <p><input type="radio" id="C" name="jawab<?= $n ?>" value="c"> C.<?= $value["c"] ?></p>
