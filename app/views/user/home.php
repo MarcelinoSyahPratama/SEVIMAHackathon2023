@@ -17,8 +17,8 @@
             <td><?= $kelas["nama"] ?></td>
             <td><?= $kelas["Username"] ?></td>
             <td class="text-center">
-              <a href="<?= BASEURL; ?>/listtugas/index/<?= $kelas['id_kelas']; ?>"><span class="badge bg-success">Selesai</span></a>
-              <a href="<?= BASEURL; ?>/tugasselesai/index/<?= $kelas['id_kelas']; ?>"><span class="badge bg-danger">Belum Selesai</span></a>
+              <a href="<?= BASEURL; ?>/listtugas/index/<?= $kelas['id_kelas']; ?>"><span class="badge bg-danger">Belum Selesai</span></a>
+              <a href="<?= BASEURL; ?>/tugasselesai/index/<?= $kelas['id_kelas']; ?>"><span class="badge bg-success">Selesai</span></a>
             </td>
           </tr>
         <?php endforeach ?>
@@ -54,3 +54,8 @@
     </div>
   </div>
 </div>
+<script>
+    $(document).ready(function(){
+      $('#table').DataTable();
+  });
+</script>

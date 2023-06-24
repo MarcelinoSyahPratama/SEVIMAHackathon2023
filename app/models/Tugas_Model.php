@@ -93,9 +93,13 @@ class Tugas_Model
   }
   public function getNilaiUser($id_tugas)
   {
-    session_start();
     $id_user = $_SESSION["user"]["id_user"];
     $this->db->query("SELECT * FROM nilai INNER JOIN tugas ON nilai.id_tugas = tugas.id_tugas WHERE id_user = $id_user");
+    return $this->db->resultSet();
+  }
+  public function getNilaiUserAll($id_tugas)
+  {
+    $this->db->query("SELECT * FROM nilai INNER JOIN tugas ON nilai.id_tugas = tugas.id_tugas WHERE nilai.id_tugas = $id_tugas");
     return $this->db->resultSet();
   }
 }
