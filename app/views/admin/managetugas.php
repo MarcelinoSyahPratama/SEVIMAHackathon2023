@@ -6,6 +6,7 @@
     <table class="table1" id="table1">
       <thead>
         <tr>
+          <th>Kode Kelas</th>
           <th>Judul</th>
           <th>deskripsi</th>
           <th>deadline</th>
@@ -17,6 +18,7 @@
       <tbody>
         <?php foreach($data["tugas"] as $key => $tugas) : ?>
           <tr>
+            <td><?= $tugas["kode"] ?></td>
             <td><?= $tugas["judul"] ?></td>
             <td><?= $tugas["deskripsi"] ?></td>
             <td><?= $tugas["deadline"] ?></td>
@@ -48,10 +50,17 @@
         </div>
         <div class="modal-body">
           <form action="<?= BASEURL; ?>/managetugas/addTugas" method="POST">
-
+            <div class="mb-3">
+              <label for="desc" class="col-form-label">Kelas</label>
+              <select class="form-select form-select-sm" name="kelas" aria-label=".form-select-sm example">
+                <?php foreach($data["kelas"] as $key => $kelas) : ?>
+                <option value="<?= $kelas["id_kelas"] ?>"><?= $kelas["nama"] ?></option>
+                <?php endforeach ?>
+              </select>
+            </div>
             <div class="mb-3">
               <label for="judul" class="col-form-label">Judul</label>
-              <input type="text" class="form-control shadow-none" id="judul" placeholder="username" name="judul">
+              <input type="text" class="form-control shadow-none" id="judul" placeholder="Judul" name="judul">
             </div>
             <div class="mb-3">
               <label for="desc" class="col-form-label">Deskripsi</label>

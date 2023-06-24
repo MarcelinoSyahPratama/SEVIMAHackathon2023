@@ -3,6 +3,7 @@ class ManageTugas extends Controller
 {
     public function index()
     {
+        $data['kelas'] = $this->model('Kelas_Model')->getAllKelas();
         $data['tugas'] = $this->model('Tugas_Model')->getAllTugas();
         $this->view('tamplates/header_admin');
         $this->view('admin/managetugas',$data);
@@ -14,9 +15,10 @@ class ManageTugas extends Controller
             $judul = $_POST['judul'];
             $desc = $_POST['desc'];
             $deadline = $_POST['deadline'];
+            $kelas = $_POST['kelas'];
 
             $data = [
-                'idguru' => "1",
+                'kelas' => $kelas,
                 'judul' => $judul,
                 'desc' => $desc,
                 'deadline' => $deadline,

@@ -3,11 +3,43 @@ class Login extends Controller
 {
     public function index()
     {
-        session_start();
-        if (isset($_SESSION['id_user'])) {
+        $this->view('user/login');
+    }
 
-        } else {
-            $this->view('user/login');
-        }
+    public function login(){
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+
+                    $data = [
+                      'username' => $username,
+                      'password' => password_hash($password, PASSWORD_DEFAULT)
+                    ];
+
+                    // Cek kecocokan username dan password
+                    $user = $this->model('User_Model')->login($data);
+                    //echo "<pre>";print_r($user);die;
+            
+                    if ($user && password_verify($password, $data['password'])) {
+
+                      // Login berhasil, simpan informasi pengguna ke sesi atau cookie
+                      
+                      session_start();
+
+                      $_SESSION['user'] = $user;
+            
+                      if ($user['Role'] === 'guru') {
+                        header('Location:'. BASEURL . '/managekelas');
+                      } else {
+                        //header('Location:'. BASEURL . '/manageroom');
+                      }
+                      exit;
+                    } else {
+                        header('Location:'. BASEURL . '/login');
+                    }
+            } else {
+                header('Location:'. BASEURL . '/login');
+            }
     }
 }

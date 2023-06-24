@@ -9,15 +9,15 @@ class Tugas_Model
   }
   public function getAllTugas()
   {
-    $this->db->query('SELECT * FROM ' . $this->table);
+    $this->db->query('SELECT * FROM ' . $this->table . ' INNER JOIN kelas ON kelas.id_kelas = tugas.id_kelas');
     return $this->db->resultSet();
   }
   public function addDataTugas($data)
   {
-    $query = "INSERT INTO $this->table VALUES ('',:idguru, :judul, :desc, :deadline, :Status, :DateTime)";
+    $query = "INSERT INTO $this->table VALUES ('',:kelas, :judul, :desc, :deadline, :Status, :DateTime)";
 
     $this->db->query($query);
-    $this->db->bind(':idguru', $data['idguru']);
+    $this->db->bind(':kelas', $data['kelas']);
     $this->db->bind(':judul', $data['judul']);
     $this->db->bind(':desc', $data['desc']);
     $this->db->bind(':deadline', $data['deadline']);

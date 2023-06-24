@@ -18,7 +18,7 @@ class User_Model
 
     $this->db->query($query);
     $this->db->bind(':username', $data['username']);
-    $this->db->bind(':password', $data['password']);
+    $this->db->bind(':password', password_hash($data['password'], PASSWORD_DEFAULT));
     $this->db->bind(':role', $data['role']);
 
     $this->db->execute();
@@ -31,7 +31,7 @@ class User_Model
 
     $this->db->query($query);
     $this->db->bind(':username', $data['username']);
-    $this->db->bind(':password', $data['password']);
+    $this->db->bind(':password', password_hash($data['password'], PASSWORD_DEFAULT));
     $this->db->bind(':role', $data['role']);
     $this->db->bind(':id_user', $data['id_user']);
 
@@ -51,6 +51,21 @@ class User_Model
     $this->db->execute();
 
     return $this->db->rowCount();
+  }
+
+  public function login($data)
+  {
+    try {
+      $query = "SELECT * FROM $this->table WHERE username = :username";
+
+      $this->db->query($query);
+      $this->db->bind(':username', $data['username']);
+      $user = $this->db->single();
+
+      return $user;
+    } catch (PDOException $e) {
+      echo "Error: " . $e->getMessage();
+    }
   }
 
 }
