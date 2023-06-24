@@ -14,7 +14,6 @@ class HalamanUjian extends Controller
             $score=0;
 			$benar=0;
 			$salah=0;
-			$kosong=0;
             for($i=1;$i<=$_POST["jmlsoal"];$i++){
                 $nomor=$_POST["soal".$i];
                 $jawaban=$_POST["jawab".$i];
