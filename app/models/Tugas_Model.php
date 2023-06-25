@@ -109,4 +109,10 @@ class Tugas_Model
     $this->db->query("SELECT * FROM tugas INNER JOIN nilai ON nilai.id_tugas != tugas.id_tugas WHERE id_kelas = $id_kelas AND deadline <= '$date'");
     return $this->db->resultSet();
   }
+  /*public function belumkerja($id_tugas)
+  {
+    $date = date("Y-m-d");
+    $this->db->query("SELECT * FROM kelasuser INNER JOIN user ON kelasuser.id_user = user.id_user WHERE kelasuser.kodekelas = '$kodekelas'");
+    return $this->db->resultSet();
+  }*/
 }

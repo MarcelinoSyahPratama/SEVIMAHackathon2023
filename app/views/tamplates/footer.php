@@ -1,4 +1,16 @@
-<footer class="bg-dark">
+<style>
+    #footer{
+		bottom: 0;
+    width: 100%;
+    position: fixed;
+    height:50px;
+    line-height:50px;
+    background:#3c3a3a;
+    color:#fff;
+    padding-left: 10px;
+  }
+</style>
+<footer id="footer" class="bg-dark">
     <div class="row p-0 m-0">
       <div class="col-10">
         <h4 class="text-light m-0 p-2" style="bottom:0">Pendidikan 2023</h4>

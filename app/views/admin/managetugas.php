@@ -26,6 +26,7 @@
             <td><?= $tugas["status"] ?></td>
             <td><?= $tugas["DateTime"] ?></td>
             <td class="text-center">
+              <a href="<?= BASEURL; ?>/nilaisiswa/belumkerja/<?= $tugas['id_tugas']; ?>"><span class="badge bg-danger">Siswa Belum Mengerjakan</span></a>
               <a href="<?= BASEURL; ?>/nilaisiswa/index/<?= $tugas['id_tugas']; ?>"><span class="badge bg-success">Nilai Siswa</span></a>
               <a href="<?= BASEURL; ?>/halamanujian/index/<?= $tugas['id_tugas']; ?>"><span class="badge bg-success">Halaman Ujian</span></a>
               <a class="showModalUpdate enableButton" data-bs-toggle="modal" data-bs-target="#ModalUpload" onclick="upload('<?= $tugas['id_tugas']; ?>')">
