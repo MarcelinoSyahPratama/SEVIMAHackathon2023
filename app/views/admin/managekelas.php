@@ -17,6 +17,7 @@
             <td><?= $kelas["nama"] ?></td>
             <td><?= $kelas["kode"] ?></td>
             <td class="text-center">
+                <a href="<?= BASEURL; ?>/listsiswa/index/<?= $kelas['kode']; ?>"><span class="badge bg-info">Daftar Siswa</span></a>
               <a class="showModalUpdate enableButton" data-bs-toggle="modal" data-bs-target="#ModalUpdate" data-id="<?= $kelas['id_kelas']; ?>" onclick="detail(<?= $kelas['id_kelas']; ?>,'<?= $kelas['nama']; ?>')">
               <span class="badge bg-warning">Edit</span></a>
               <a href="<?= BASEURL; ?>/managekelas/deleteKelas/<?= $kelas['id_kelas']; ?>"><span class="badge bg-danger">Hapus</span></a>

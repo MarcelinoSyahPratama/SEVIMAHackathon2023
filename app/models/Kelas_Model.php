@@ -58,10 +58,12 @@ class Kelas_Model
   {
     session_start();
     $id_user = $_SESSION["user"]["id_user"];
-    $query = "INSERT INTO kelasuser VALUES ('', :id_user, :kodekelas)";
+    $datetime = date('Y-m-d H:s:i');
+    $query = "INSERT INTO kelasuser VALUES ('', :id_user, :kodekelas, :datetime)";
     $this->db->query($query);
-    $this->db->bind(':kodekelas', $data["kodekelas"]);
+    $this->db->bind(':kodekelas', "{$data["kodekelas"]}");
     $this->db->bind(':id_user', $id_user);
+    $this->db->bind(':datetime', "$datetime");
 
     $this->db->execute();
 
@@ -74,5 +76,9 @@ class Kelas_Model
     $this->db->query("SELECT * FROM kelasuser INNER JOIN kelas ON kelasuser.kodekelas = kelas.kode INNER JOIN user ON kelas.id_guru = user.id_user WHERE kelasuser.id_user = $id_user");
     return $this->db->resultSet();
   }
-  
+  public function getsiswakelas($kodekelas)
+  {
+    $this->db->query("SELECT * FROM kelasuser INNER JOIN user ON kelasuser.id_user = user.id_user WHERE kelasuser.kodekelas = '$kodekelas'");
+    return $this->db->resultSet();
+  }
 }

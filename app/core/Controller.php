@@ -8,11 +8,13 @@ class Controller
     foreach ($data as $key => $value) {
       ${$key} = $value;
     }
+    require_once 'Error.php';
     require_once '../app/views/' . $view . '.php';
   }
 
   public function model($model)
   {
+    require_once 'Error.php';
     require_once '../app/models/' . $model . '.php';
     return new $model;
   }
