@@ -89,7 +89,7 @@ class Tugas_Model
   public function getTugasUser($id_kelas)
   {
     $date = date("Y-m-d");
-    $this->db->query("SELECT * FROM tugas INNER JOIN nilai ON nilai.id_tugas != tugas.id_tugas WHERE id_kelas = $id_kelas AND deadline <= $date");
+    $this->db->query("SELECT * FROM tugas INNER JOIN nilai ON nilai.id_tugas != tugas.id_tugas WHERE id_kelas = $id_kelas AND deadline >= '$date'");
     return $this->db->resultSet();
   }
   public function getNilaiUser($id_tugas)
@@ -101,6 +101,12 @@ class Tugas_Model
   public function getNilaiUserAll($id_tugas)
   {
     $this->db->query("SELECT * FROM nilai INNER JOIN tugas ON nilai.id_tugas = tugas.id_tugas WHERE nilai.id_tugas = $id_tugas");
+    return $this->db->resultSet();
+  }
+  public function getTugasUserDeadline($id_kelas)
+  {
+    $date = date("Y-m-d");
+    $this->db->query("SELECT * FROM tugas INNER JOIN nilai ON nilai.id_tugas != tugas.id_tugas WHERE id_kelas = $id_kelas AND deadline <= '$date'");
     return $this->db->resultSet();
   }
 }
